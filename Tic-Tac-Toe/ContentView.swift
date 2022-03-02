@@ -7,11 +7,14 @@
 
 import SwiftUI
 
-let columns: [GridItem] = [GridItem(.flexible()),
-                           GridItem(.flexible()),
-                           GridItem(.flexible()),]
-
 struct ContentView: View {
+    
+    let columns: [GridItem] = [GridItem(.flexible()),
+                               GridItem(.flexible()),
+                               GridItem(.flexible()),]
+    
+    @State private var moves : [Move?] = Array(repeating: nil, count: 9)
+    
     var body: some View {
         GeometryReader { geometry in
             VStack{
@@ -23,10 +26,21 @@ struct ContentView: View {
                                 .foregroundColor(.red).opacity(0.5)
                                 .frame(width: geometry.size.width/3 - 15,
                                        height: geometry.size.width/3 - 15)
-                            Image(systemName: "xmark")
+                            Image(systemName: moves[i]? .indicator ?? "")
                                 .resizable()
                                 .frame(width: 40, height: 40)
                                 .foregroundColor(.white)
+                        }
+                        .onTapGesture {
+                            if isSquareOccupied(in: moves, forIndex: i) {return}
+                            moves[i] = Move(player: .human, boardIndex: i)
+                            
+                            // Check for win condition or draw
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                                let computerPosition = determineComputerMovePostion(in: moves)
+                                moves[computerPosition] = Move(player: .computer, boardIndex: computerPosition)
+                            }
                         }
                     }
                 }
@@ -34,6 +48,32 @@ struct ContentView: View {
             }
             .padding()
         }
+    }
+    func isSquareOccupied(in moves: [Move?], forIndex index: Int) -> Bool {
+        // Going through moves array, $0 means for each element in the array, if that element at that board
+        // equals the index that we pass in than return true, basically checking to see if the index is occupied
+        return moves.contains(where: { $0?.boardIndex == index})
+    }
+    func determineComputerMovePostion (in moves: [Move?]) -> Int {
+        var movePosition = Int.random(in: 0..<9)
+        
+        while isSquareOccupied(in: moves, forIndex: movePosition){
+            movePosition = Int.random(in: 0..<9)
+        }
+        return movePosition
+    }
+}
+
+enum Player {
+    case human, computer
+}
+
+struct Move {
+    let player: Player
+    let boardIndex: Int
+    
+    var indicator: String {
+        return player == .human ? "xmark" : "circle"
     }
 }
 
