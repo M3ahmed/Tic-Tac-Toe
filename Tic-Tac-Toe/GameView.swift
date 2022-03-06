@@ -1,17 +1,17 @@
-//
-//  GameView.swift
-//  Tic-Tac-Toe
-//
-//  Created by Mohamed Ahmed on 3/1/22.
-//
+//****************************************//
+//                                        //
+//  GameView.swift                        //
+//  Tic-Tac-Toe                           //
+//                                        //
+//  Created by Mohamed Ahmed on 3/1/22.   //
+//                                        //
+//****************************************//
 
 import SwiftUI
 
 struct GameView: View {
     
     @StateObject private var viewModel = GameViewModel()
-    
-
     
     var body: some View {
         GeometryReader { geometry in
@@ -35,12 +35,11 @@ struct GameView: View {
             .alert(item: $viewModel.alertItem, content: {alertItem in
                 Alert(title: alertItem.title,
                       message: alertItem.message,
-                      dismissButton: .default(alertItem.buttonTitle, action: {viewModel.resetGame()}))
+                      dismissButton: .default(alertItem.buttonTitle,
+                                              action: {viewModel.resetGame()}))
             })
         }
     }
-    
-
 }
 
 enum Player {
