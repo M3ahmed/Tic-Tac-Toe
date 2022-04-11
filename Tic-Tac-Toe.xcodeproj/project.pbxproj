@@ -16,6 +16,9 @@
 		ACAC2CC527CEED260035B5A8 /* Tic_Tac_ToeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAC2CC427CEED260035B5A8 /* Tic_Tac_ToeTests.swift */; };
 		ACAC2CCF27CEED260035B5A8 /* Tic_Tac_ToeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAC2CCE27CEED260035B5A8 /* Tic_Tac_ToeUITests.swift */; };
 		ACAC2CD127CEED260035B5A8 /* Tic_Tac_ToeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAC2CD027CEED260035B5A8 /* Tic_Tac_ToeUITestsLaunchTests.swift */; };
+		ACBEEB782804CF8A00DF60D2 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBEEB772804CF8A00DF60D2 /* PrimaryButton.swift */; };
+		ACD1AB772804D761006C72BD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD1AB762804D761006C72BD /* Extensions.swift */; };
+		ACE021B127D47E6200E2D817 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE021B027D47E6200E2D817 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,9 @@
 		ACAC2CCA27CEED260035B5A8 /* Tic-Tac-ToeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tic-Tac-ToeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACAC2CCE27CEED260035B5A8 /* Tic_Tac_ToeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tic_Tac_ToeUITests.swift; sourceTree = "<group>"; };
 		ACAC2CD027CEED260035B5A8 /* Tic_Tac_ToeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tic_Tac_ToeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		ACBEEB772804CF8A00DF60D2 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		ACD1AB762804D761006C72BD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		ACE021B027D47E6200E2D817 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,11 +105,13 @@
 			isa = PBXGroup;
 			children = (
 				ACAC2CB327CEED250035B5A8 /* Tic_Tac_ToeApp.swift */,
-				ACAC2CB527CEED250035B5A8 /* GameView.swift */,
-				AC2BBEE327D3037B009A4E81 /* GameViewModel.swift */,
 				AC92C36B27D04D5900BB1684 /* Alerts.swift */,
+				ACD1AB782804D964006C72BD /* Models */,
+				ACBEEB792804D14300DF60D2 /* Views */,
+				ACBEEB762804CF3F00DF60D2 /* Components */,
 				ACAC2CB727CEED260035B5A8 /* Assets.xcassets */,
 				ACAC2CB927CEED260035B5A8 /* Preview Content */,
+				ACD1AB762804D761006C72BD /* Extensions.swift */,
 			);
 			path = "Tic-Tac-Toe";
 			sourceTree = "<group>";
@@ -131,6 +139,31 @@
 				ACAC2CD027CEED260035B5A8 /* Tic_Tac_ToeUITestsLaunchTests.swift */,
 			);
 			path = "Tic-Tac-ToeUITests";
+			sourceTree = "<group>";
+		};
+		ACBEEB762804CF3F00DF60D2 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				ACBEEB772804CF8A00DF60D2 /* PrimaryButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		ACBEEB792804D14300DF60D2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ACE021B027D47E6200E2D817 /* HomeView.swift */,
+				ACAC2CB527CEED250035B5A8 /* GameView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ACD1AB782804D964006C72BD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AC2BBEE327D3037B009A4E81 /* GameViewModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,10 +296,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACBEEB782804CF8A00DF60D2 /* PrimaryButton.swift in Sources */,
 				AC2BBEE427D3037B009A4E81 /* GameViewModel.swift in Sources */,
 				ACAC2CB627CEED250035B5A8 /* GameView.swift in Sources */,
 				AC92C36C27D04D5900BB1684 /* Alerts.swift in Sources */,
+				ACE021B127D47E6200E2D817 /* HomeView.swift in Sources */,
 				ACAC2CB427CEED250035B5A8 /* Tic_Tac_ToeApp.swift in Sources */,
+				ACD1AB772804D761006C72BD /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
