@@ -11,7 +11,8 @@ import SwiftUI
 struct Tic_Tac_ToeApp: App {
     var body: some Scene {
         WindowGroup {
-            GameView()
+            HomeView()
+            //GameView(isDark: .constant(false))
         }
     }
 }

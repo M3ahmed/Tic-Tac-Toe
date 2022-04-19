@@ -8,32 +8,50 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @State private var isDark = false
+//    @Binding var isComp: Bool
+    @State private var isHuman = true
+    @State private var isComp = false
     var body: some View {
-        ZStack{
-            Color.init(red: 0.91, green: 0.89, blue: 0.90)
-                .ignoresSafeArea()
-            VStack(spacing: 40){
-                Image(systemName: "number")
-                    .renderingMode(.original)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 180, height: 180)
-                    .foregroundColor(Color.accentColor)
-                    .shadow(radius: 2)
-                VStack(spacing: 20){
-                    Text("Tic Tac Toe")
-                        .accentTitle()
-                        .padding()
-                    Text("Grab A Partner")
-                        .foregroundColor(Color.accentColor)
+        
+        NavigationView {
+                VStack(spacing: 40){
+                    Image(systemName: "number")
+                        .mainLogo(color: Color.accentColor)
+                    VStack(spacing: 20){
+                        Text("Tic Tac Toe")
+                            .mainTitle(color: Color.accentColor)
+                            .padding()
+                        Text("Grab A Partner")
+                            .foregroundColor(Color.accentColor)
+                    }
+                    HStack{
+                        NavigationLink{
+                            GameView(isDark: $isDark, isHum: isComp)
+                        } label: {
+                            PrimaryButton(text: "VS Computer", backColor:  Color.accentColor, forColor: .white)
+                        }
+                        NavigationLink{
+                            GameView(isDark: $isDark, isHum: isHuman)
+                        } label: {
+                            PrimaryButton(text: "VS Player", backColor:  Color.accentColor, forColor: .white)
+                        }
+                    }
+                    
                 }
-                HStack{
-                    PrimaryButton(text: "VS Computer")
-                    PrimaryButton(text: "VS Player")
+                .frame(maxWidth: .infinity,maxHeight: .infinity)
+                .background(isDark ? Color.init(hue: 0.6, saturation: 0.3, brightness: 0.15) : Color.init(red: 0.91, green: 0.89, blue: 0.90))
+                .ignoresSafeArea()
+                .toolbar{
+                    Button{
+                        isDark.toggle()
+                    }label: {
+                        isDark ? Label("Day", systemImage: "sun.max.fill") : Label("Dark", systemImage: "moon.fill")
+                    }
                 }
             }
         }
-    }
 }
 
 struct HomeView_Previews: PreviewProvider {

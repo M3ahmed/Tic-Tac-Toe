@@ -24,7 +24,7 @@ final class GameViewModel: ObservableObject {
         
         // Check for win condition or draw
         if checkWinCondtion(for: .human, in: moves) {
-            alertItem = AlertContext.humanWin
+            alertItem = AlertContext.humanWinVsComp
             return
         }
         
@@ -49,6 +49,24 @@ final class GameViewModel: ObservableObject {
                 return
             }
         }
+    }
+    
+    func processPlayer2Move(for position: Int, fplayer: Player) {
+        
+        if isSquareOccupied(in: moves, forIndex: position) {return}
+        moves[position] = Move(player: fplayer, boardIndex: position)
+        
+        // Check for win condition or draw
+        if checkWinCondtion(for: fplayer, in: moves) {
+            alertItem = AlertContext.humanWinVsHuman2
+            return
+        }
+        
+        if checkForDraw(in: moves) {
+            alertItem = AlertContext.draw
+            return
+        }
+        
     }
     
     func isSquareOccupied(in moves: [Move?], forIndex index: Int) -> Bool {

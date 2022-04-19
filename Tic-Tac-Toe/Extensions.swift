@@ -9,8 +9,26 @@ import Foundation
 import SwiftUI
 
 extension Text {
-    func accentTitle() -> some View {
+    func mainTitle(color: Color) -> some View {
         self.font(.system(size: 32, weight: .heavy, design: .default))
-            .foregroundColor(Color.accentColor)
+            .foregroundColor(color)
+    }
+}
+
+extension Image {
+    func mainLogo(color: Color) -> some View {
+        self.renderingMode(.original)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 180, height: 180)
+            .foregroundColor(color)
+    }
+}
+
+extension VStack {
+    func homePage(color: Color) -> some View{
+        self.frame(maxWidth: .infinity,maxHeight: .infinity)
+            .background(color)
+            .ignoresSafeArea()
     }
 }

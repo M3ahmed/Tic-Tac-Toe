@@ -9,20 +9,29 @@ import SwiftUI
 
 struct PrimaryButton: View {
     var text: String
-    var background: Color = Color("AccentColor")
+//    @State private var isComp: String = "VS Computer"
+    //var background: Color = Color("AccentColor")
+    var backColor: Color
+    var forColor: Color
+//    @State var boolToggle: Bool
     var body: some View {
         Text(text)
-            .foregroundColor(.white)
+            .foregroundColor(forColor)
             .padding()
             .padding(.horizontal)
-            .background(background)
+            .background(backColor)
             .cornerRadius(30)
             .shadow(radius: 10)
     }
+//    func isComp (text:String){
+//        if text.compare(isComp) == .orderedSame {
+//            boolToggle.toggle()
+//        }
+//    }
 }
 
 struct PrimaryButton_Previews: PreviewProvider {
     static var previews: some View {
-        PrimaryButton(text: "Next")
+        PrimaryButton(text: "next", backColor: .white, forColor: .white)
     }
 }

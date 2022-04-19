@@ -12,6 +12,9 @@ import SwiftUI
 struct GameView: View {
     
     @StateObject private var viewModel = GameViewModel()
+    @Binding var isDark: Bool
+    var isHum: Bool
+    @State var counter = 0
     
     var body: some View {
         GeometryReader { geometry in
@@ -24,7 +27,20 @@ struct GameView: View {
                             PlayerIndicator(systemImageName: viewModel.moves[i]? .indicator ?? "")
                         }
                         .onTapGesture {
-                            viewModel.processPlayerMove(for: i)
+                            if(isHum == false){
+                                viewModel.processPlayerMove(for: i)
+                            }else{
+                                if(counter%2 == 0){
+                                    viewModel.processPlayer2Move(for: i, fplayer: .human)
+                                    
+                                }else{
+                                    viewModel.processPlayer2Move(for: i, fplayer: .humanTwo)
+                                }
+                            }
+                            if(counter >= 9)
+                            {
+                                counter = 0
+                            }else{counter = counter+1}
                         }
                     }
                 }
@@ -36,14 +52,28 @@ struct GameView: View {
                 Alert(title: alertItem.title,
                       message: alertItem.message,
                       dismissButton: .default(alertItem.buttonTitle,
-                                              action: {viewModel.resetGame()}))
+                                              action: {
+                                                            viewModel.resetGame()
+                                                            counter=0
+                                                            
+                                                        }))
             })
+            .frame(maxWidth: .infinity,maxHeight: .infinity)
+            .background(isDark ? Color.init(hue: 0.6, saturation: 0.3, brightness: 0.15) : Color.init(red: 0.91, green: 0.89, blue: 0.90))
+            .ignoresSafeArea()
+            .toolbar{
+                Button{
+                    isDark.toggle()
+                }label: {
+                    isDark ? Label("Day", systemImage: "sun.max.fill") : Label("Dark", systemImage: "moon.fill")
+                }
+            }
         }
     }
 }
 
 enum Player {
-    case human, computer
+    case human, computer, humanTwo
 }
 
 struct Move {
@@ -57,7 +87,7 @@ struct Move {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView()
+        GameView(isDark: .constant(false),isHum: false)
             .previewDevice("iPhone 13 Pro Max")
     }
 }
