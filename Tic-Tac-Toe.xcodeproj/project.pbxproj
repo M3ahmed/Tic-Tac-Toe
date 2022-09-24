@@ -19,6 +19,7 @@
 		ACBEEB782804CF8A00DF60D2 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBEEB772804CF8A00DF60D2 /* PrimaryButton.swift */; };
 		ACD1AB772804D761006C72BD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD1AB762804D761006C72BD /* Extensions.swift */; };
 		ACE021B127D47E6200E2D817 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE021B027D47E6200E2D817 /* HomeView.swift */; };
+		ACF7E91B28AFEC7D005DA7A2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF7E91A28AFEC7D005DA7A2 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		ACBEEB772804CF8A00DF60D2 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		ACD1AB762804D761006C72BD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		ACE021B027D47E6200E2D817 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		ACF7E91A28AFEC7D005DA7A2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 			children = (
 				ACE021B027D47E6200E2D817 /* HomeView.swift */,
 				ACAC2CB527CEED250035B5A8 /* GameView.swift */,
+				ACF7E91A28AFEC7D005DA7A2 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACBEEB782804CF8A00DF60D2 /* PrimaryButton.swift in Sources */,
+				ACF7E91B28AFEC7D005DA7A2 /* SettingsView.swift in Sources */,
 				AC2BBEE427D3037B009A4E81 /* GameViewModel.swift in Sources */,
 				ACAC2CB627CEED250035B5A8 /* GameView.swift in Sources */,
 				AC92C36C27D04D5900BB1684 /* Alerts.swift in Sources */,

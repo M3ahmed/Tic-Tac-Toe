@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @State private var isDark = false
+    @Binding var isDark: Bool
 //    @Binding var isComp: Bool
     @State private var isHuman = true
     @State private var isComp = false
@@ -44,10 +44,10 @@ struct HomeView: View {
                 .background(isDark ? Color.init(hue: 0.6, saturation: 0.3, brightness: 0.15) : Color.init(red: 0.91, green: 0.89, blue: 0.90))
                 .ignoresSafeArea()
                 .toolbar{
-                    Button{
-                        isDark.toggle()
-                    }label: {
-                        isDark ? Label("Day", systemImage: "sun.max.fill") : Label("Dark", systemImage: "moon.fill")
+                    NavigationLink{
+                        SettingsView()
+                    } label: {
+                        Label("Day", systemImage: "gearshape.fill")
                     }
                 }
             }
@@ -56,6 +56,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(isDark: .constant(false))
     }
 }
